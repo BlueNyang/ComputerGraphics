@@ -14,6 +14,8 @@ public class MainUI : MonoBehaviour
     [SerializeField]
     Image mBtnImage01;
 
+    Color now_clr = Color.white;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,9 @@ public class MainUI : MonoBehaviour
         {
             Debug.Log("20202717 ╬х╠теб test1 Clicked");
 
-            mBtnImage01.color = Color.blue;
+            if(now_clr == Color.white) now_clr = Color.blue;
+            else now_clr = Color.white;
+            mBtnImage01.color = now_clr;
         });
 
 
