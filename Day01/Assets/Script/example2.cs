@@ -37,8 +37,10 @@ public class Example2 : MonoBehaviour
                 lineRenderer.SetPositions(points);
                 lineRenderer.startWidth = 0.05f;
 
-                lineRenderer.material = new Material(Shader.Find("Unlit/Color"));
-                lineRenderer.material.color = Color.red;
+                lineRenderer.material = new Material(Shader.Find("Unlit/Color"))
+                {
+                    color = Color.red
+                };
             }
         );
     }
