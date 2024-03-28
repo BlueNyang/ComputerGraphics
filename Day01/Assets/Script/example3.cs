@@ -48,18 +48,18 @@ public class example3 : MonoBehaviour
 
                 LineRenderer lineRenderer = lineObj.AddComponent<LineRenderer>();
 
-                int pointCount = 5;
+                int pointCount = 4;
                 Vector3[] points = new Vector3[pointCount];
 
                 points[0] = new Vector3(-5, 0, 0);
                 points[1] = new Vector3(0, 0, 0);
                 points[2] = new Vector3(0, 5, 0);
                 points[3] = new Vector3(-5, 5, 0);
-                points[4] = new Vector3(-5, 0, 0);
 
                 lineRenderer.positionCount = pointCount;
                 lineRenderer.SetPositions(points);
                 lineRenderer.startWidth = 0.05f;
+                lineRenderer.loop = true;
 
                 lineRenderer.material = new Material(Shader.Find("Unlit/Color"))
                 {
