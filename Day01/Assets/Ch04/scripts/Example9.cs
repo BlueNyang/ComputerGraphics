@@ -33,7 +33,7 @@ public class Example9 : MonoBehaviour
                 mesh.RecalculateNormals();
                 mesh.RecalculateBounds();
 
-                meshRdr.material = new Material(Shader.Find("Custom/Color")); //{ color = new(0, 0, 1, 1) };
+                meshRdr.material = new Material(Shader.Find("Custom/simpleColor")); //{ color = new(0, 0, 1, 1) };
                 meshRdr.material.SetColor("BaseColor", new Color(0, 1, 0, 1));
 
             }
