@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Ex8_Ball : MonoBehaviour
+public class Ex7_Ball : MonoBehaviour
 {
-    [SerializeField] Example8 ex8;
+    [SerializeField] Example7 ex7;
     [SerializeField] Rigidbody rdbd;
 
     Dictionary<string, int> scores;
@@ -41,7 +41,7 @@ public class Ex8_Ball : MonoBehaviour
             rdbd.Sleep();
             rdbd.WakeUp();
             SetRdbdDefPos();
-            ex8.SetScoreText(scores["RedGround"], scores["BlueGround"], scores["GreenGround"]);
+            ex7.SetScoreText(scores["RedGround"], scores["BlueGround"], scores["GreenGround"]);
         }
     }
 

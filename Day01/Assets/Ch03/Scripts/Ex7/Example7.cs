@@ -5,7 +5,7 @@ using UnityEngine;
 
 using UnityEngine.UI;
 
-public class Example8 : MonoBehaviour
+public class Example7 : MonoBehaviour
 {
     [SerializeField] TMP_Text score_txt;
     [SerializeField] Material ball_material;
@@ -32,6 +32,6 @@ public class Example8 : MonoBehaviour
         GameObject gameObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         gameObject.GetComponent<MeshRenderer>().material = ball_material;
         gameObject.AddComponent<Rigidbody>();
-        gameObject.AddComponent<Ex8_Ball>();
+        gameObject.AddComponent<Ex7_Ball>();
     }
 }

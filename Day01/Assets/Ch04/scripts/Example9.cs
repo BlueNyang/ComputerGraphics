@@ -5,39 +5,142 @@ using UnityEngine.UI;
 
 public class Example9 : MonoBehaviour
 {
-    [SerializeField] Button btnDrawTri;
+    [SerializeField] Button drawTriBtn;
+    [SerializeField] Button drawRectBtn;
+    [SerializeField] Button colorBtn;
+    [SerializeField] Button textureBtn;
+
+    [SerializeField] Texture2D texture;
     // Start is called before the first frame update
     void Start()
     {
-        btnDrawTri.onClick.AddListener( () => {
-                Debug.Log("Draw Triangle");
+        drawTriBtn.onClick.AddListener(() => {
+            Debug.Log("draw Triangle");
 
-                GameObject gameObj = new ("lineRenderer");
-                MeshFilter meshFilter = gameObj.AddComponent<MeshFilter>();
-                MeshRenderer meshRdr = gameObj.AddComponent<MeshRenderer>();
+            GameObject gameObject = new ("Triangle");
+            MeshFilter meshFilter = gameObject.AddComponent<MeshFilter>();
+            MeshRenderer meshRenderer = gameObject.AddComponent<MeshRenderer>();
 
-                Mesh mesh = new();
+            Mesh mesh = new Mesh();
+            meshFilter.mesh = mesh;
 
-                meshFilter.mesh = mesh;
+            Vector3[] vertices = {
+                new Vector3(-1.5f, 0, 0),
+                new Vector3(-1.0f, 0.5f, 0),
+                new Vector3(-0.5f, 0, 0)
+            };
 
-                Vector3[] vertices = {
-                    new (-0.5f, -0.5f, 0),
-                    new (0, 0.5f, 0),
-                    new (0.5f, -0.5f, 0)
-                };
-                mesh.vertices = vertices;
+            mesh.vertices = vertices;
 
-                int[] triangles = new int[3]{0, 1, 2};
-                mesh.triangles = triangles;
+            int[] triangles = { 0, 1, 2 };
+            mesh.triangles = triangles;
 
-                mesh.RecalculateNormals();
-                mesh.RecalculateBounds();
+            mesh.RecalculateNormals();
+            mesh.RecalculateBounds();
+            
+            meshRenderer.material = new Material(Shader.Find("Standard"));
 
-                meshRdr.material = new Material(Shader.Find("Custom/simpleColor")); //{ color = new(0, 0, 1, 1) };
-                meshRdr.material.SetColor("BaseColor", new Color(0, 1, 0, 1));
+        });
 
-            }
-        );
+        drawRectBtn.onClick.AddListener(() => {
+            GameObject _obj = new("rect");
+            MeshFilter meshFilter = _obj.AddComponent<MeshFilter>();
+            MeshRenderer meshRenderer = _obj.AddComponent<MeshRenderer>();
+
+            Mesh mesh = new();
+            meshFilter.mesh = mesh;
+
+            Vector3[] vertices = {
+                new Vector3(-0.5f, -0.5f, 0),
+                new Vector3(-0.5f, 0.5f, 0),
+                new Vector3(0.5f, 0.5f, 0),
+                new Vector3(0.5f, -0.5f, 0)
+            };
+
+            mesh.vertices = vertices;
+
+            int[] triangle = {
+                0, 1, 2,
+                0, 2, 3,
+            };
+            mesh.triangles = triangle;
+
+            mesh.RecalculateNormals();
+            mesh.RecalculateBounds();
+
+            meshRenderer.material = new Material(Shader.Find("Standard"));
+
+        });
+
+        colorBtn.onClick.AddListener(() => {
+            GameObject _obj = new("rect");
+            MeshFilter meshFilter = _obj.AddComponent<MeshFilter>();
+            MeshRenderer meshRenderer = _obj.AddComponent<MeshRenderer>();
+
+            Mesh mesh = new();
+            meshFilter.mesh = mesh;
+
+            Vector3[] vertices = {
+                new Vector3(-0.5f, -0.5f, 0),
+                new Vector3(-0.5f, 0.5f, 0),
+                new Vector3(0.5f, 0.5f, 0),
+                new Vector3(0.5f, -0.5f, 0)
+            };
+
+            mesh.vertices = vertices;
+
+            int[] triangle = {
+                0, 1, 3,
+                1, 2, 3,
+            };
+            mesh.triangles = triangle;
+
+            Color[] colors = {
+                new Color(1, 0, 0, 1),
+                new Color(0, 1, 0, 1),
+                new Color(0, 0, 1, 1),
+                new Color(1, 1, 1, 1)
+            };
+
+            mesh.colors = colors;
+
+            mesh.RecalculateNormals();
+            mesh.RecalculateBounds();
+
+            meshRenderer.material = new Material(Shader.Find("Custom/simpleColor"));
+
+        });
+
+        textureBtn.onClick.AddListener(() => {
+            GameObject _obj = new("rect");
+            MeshFilter meshFilter = _obj.AddComponent<MeshFilter>();
+            MeshRenderer meshRenderer = _obj.AddComponent<MeshRenderer>();
+
+            Mesh mesh = new();
+            meshFilter.mesh = mesh;
+
+            Vector3[] vertices = {
+                new Vector3(-0.5f, -0.5f, 0),
+                new Vector3(-0.5f, 0.5f, 0),
+                new Vector3(0.5f, 0.5f, 0),
+                new Vector3(0.5f, -0.5f, 0)
+            };
+
+            mesh.vertices = vertices;
+
+            int[] triangle = {
+                0, 1, 3,
+                1, 2, 3,
+            };
+            mesh.triangles = triangle;
+
+            mesh.RecalculateNormals();
+            mesh.RecalculateBounds();
+
+            meshRenderer.material = new Material(Shader.Find("Standard"));
+
+            meshRenderer.material.mainTexture = texture;
+        });
     }
 
     // Update is called once per frame
