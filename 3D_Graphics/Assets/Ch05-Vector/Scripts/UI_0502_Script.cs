@@ -1,10 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class UI_0502_Script : MonoBehaviour
 {
     [SerializeField] TMP_Text tx_info;
     [SerializeField] GameObject ArrowObj;
@@ -64,13 +63,14 @@ public class NewBehaviourScript : MonoBehaviour
                 MainCamera.transform.Rotate(Vector3.right * Time.deltaTime * Turn_Speed);
             }
             if(Input.GetKey(KeyCode.LeftArrow)){
-                MainCamera.transform.Rotate(Vector3.down * Time.deltaTime * Turn_Speed);
+                MainCamera.transform.Rotate(new Vector3(0, 1 * Time.deltaTime * Turn_Speed, 0));
             }
             else if(Input.GetKey(KeyCode.RightArrow)){
-                MainCamera.transform.Rotate(Vector3.up * Time.deltaTime * Turn_Speed);
+                MainCamera.transform.Rotate(new Vector3(0, -1 * Time.deltaTime * Turn_Speed, 0));
             }
         }
 
         //ArrowObj.transform.Translate(Vector3.right * Time.deltaTime * Speed);
     }
 }
+
