@@ -18,6 +18,37 @@ public class Script_0703 : MonoBehaviour
         }
     }
 
+    public void CreateWeightList(int width, int height){
+        mWeights.Clear();
+
+        //Calculate center pos
+        float centerX = width * 0.5f;
+        float centerY = height * 0.5f;
+        float maxDistance = Mathf.Sqrt(centerX * centerX + centerY * centerY);
+
+        for(int i = 0; i < width; i++){
+            for(int j = 0; j < height; j++){
+                float distance = Mathf.Sqrt((i - centerX) * (i - centerX) + (j - centerY) * (j - centerY));
+                float distanceRatio = distance / maxDistance;
+                float weight = Mathf.Sin( (1- distanceRatio) * Mathf.PI * 0.5f);
+                mWeights.Add(weight);
+            }
+        }
+    }
+
+    public void CreateWeightList_default(int width, int height){
+        mWeights.Clear();
+        for(int i = 0; i < width; i++){
+            for(int j = 0; j < height; j++){
+                mWeights.Add(1f);
+            }
+        }
+    }
+
+    public void CreateGridVertices(){
+
+    }
+
     /// <summary>
     /// Callback to draw gizmos that are pickable and always drawn.
     /// </summary>
