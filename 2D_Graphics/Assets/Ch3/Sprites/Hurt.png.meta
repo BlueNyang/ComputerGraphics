@@ -100,10 +100,10 @@ TextureImporter:
       name: Hurt_0
       rect:
         serializedVersion: 2
-        x: 35
+        x: 0
         y: 0
-        width: 55
-        height: 68
+        width: 128
+        height: 128
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,10 +121,10 @@ TextureImporter:
       name: Hurt_1
       rect:
         serializedVersion: 2
-        x: 162
+        x: 128
         y: 0
-        width: 56
-        height: 68
+        width: 128
+        height: 128
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,10 +142,10 @@ TextureImporter:
       name: Hurt_2
       rect:
         serializedVersion: 2
-        x: 289
+        x: 256
         y: 0
-        width: 57
-        height: 68
+        width: 128
+        height: 128
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
