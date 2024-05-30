@@ -23,34 +23,42 @@ public class Ch3_Player : MonoBehaviour
         {
             animator.SetTrigger("isAtk");
         }
+        
         if(Input.GetMouseButtonDown(1))
         {
             animator.SetTrigger("isHurt");
             int hp = animator.GetInteger("HP");
             animator.SetInteger("HP", hp - 20);
         }
+        
         if(Input.GetKey(KeyCode.A) == false && Input.GetKey(KeyCode.D) == false){
-            animator.SetBool("Moving", false);
+                animator.SetBool("Moving", false);
         }
+        
         if(Input.GetKeyDown(KeyCode.Space)){
             animator.SetTrigger("isJump");
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
+        
         if(Input.GetKey(KeyCode.A)){
+            if(animator.GetInteger("HP") != 0){
             animator.SetBool("Moving", true);
             GetComponent<SpriteRenderer>().flipX = true;
-            transform.position += Vector3.left * speed * Time.deltaTime;
+            transform.position += speed * Time.deltaTime * Vector3.left;
+            }
         }
+
         if(Input.GetKey(KeyCode.D)){
+            if(animator.GetInteger("HP") != 0){
             animator.SetBool("Moving", true);
             GetComponent<SpriteRenderer>().flipX = false;
-            transform.position += Vector3.right * speed * Time.deltaTime;
+            transform.position += speed * Time.deltaTime * Vector3.right;
+            }
         }
     }
 
     void OnHurtEnd(){
         Instantiate(boom_prefab, transform.position, Quaternion.identity);
-        
     }
 
 }
