@@ -1,6 +1,5 @@
 
 using UnityEditor;
-using UnityEngine;
 
 [CustomEditor(typeof(Kunoichi))]
 public class RayCastViewer : Editor
@@ -9,11 +8,9 @@ public class RayCastViewer : Editor
     {
         base.OnInspectorGUI();
 
-        GUI.enabled = false;
-
-        GUILayout.Label("RayCast Viewer");
-        Kunoichi kunoichi = target as Kunoichi;
-        GUILayout.TextField($"RayCast Length: {kunoichi.RayCastLength}");
+        EditorGUI.BeginDisabledGroup(true);
+        Kunoichi kunoichi = (Kunoichi)target;
+        EditorGUILayout.LabelField("Raycast Viewer");
+        EditorGUILayout.FloatField("Distance From Ground", kunoichi.distanceFromGround);
     }
 }
-
